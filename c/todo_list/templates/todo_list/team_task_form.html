@@ -1,0 +1,18 @@
+{% extends "todo_list/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<title>New Task</title>
+ <div class="content-section">
+ 	<form method="POST">
+ 		{% csrf_token %}
+ 		<fieldset class = "form-group">
+ 			<legend class="border-bottom mb-4">New Team Task</legend>
+ 			<small>This form will assign this task to every member of the chosen team. Updating this task later or assigning subtasks will have to be done individually for each member.</small>
+ 			{{ form|crispy }}
+ 		</fieldset>
+ 		<div class="form-group">
+ 			<button class="btn btn-outline-info" type="submit">Assign to Team</button>
+ 		</div>
+ 	</form>
+ </div>
+{% endblock content %}

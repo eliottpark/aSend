@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+{% if email %}
+<meta http-equiv="Refresh" content="0; url=/dashboard/email/">
+{% endif %}
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'todo_list/main.css' %}">
+
+    
+    <title>Team Progress</title>
+    {% include 'base/bootstrap_defaults.html' %}
+  </head>
+
+
+  <body>
+  <header class="site-header">
+  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="{% url 'todo_list-personal' %}">Task Manager</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" href="{% url 'todo_list-personal' %}"> Personal</a>
+          <a class="nav-item nav-link" href="{% url 'todo_list-manage' %}"> Manage</a>
+          <a class="nav-item nav-link" href="{% url 'todo_list-team' %}"> Teams</a>
+        </div>
+        <!-- Navbar Right Side -->
+        <div class="navbar-nav">
+          {% if user.is_authenticated %}
+
+             <a class="nav-item nav-link" href ="{%url 'team-task-create' %}">New Team Task</a>
+            <a class="nav-item nav-link" href="{% url 'task-create' %}">New Individual Task</a>
+            <a class="nav-item nav-link" href="{% url 'team-create' %}">Create Team</a>
+             <a class="nav-item nav-link"><font color="white">|</font></a>
+            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+          {% else %}
+            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <main role="main" class="container">
+  <div class="row" id = "wrapper">
+    
+    <div class="col-md-3" id="left">
+      {% block content %}{% endblock %}
+    </div>
+
+     <div class='container' id="right">
+    {% block contentS %}
+    {% endblock contentS %}
+    </div>
+
+
+
+    </div>
+
+    
+
+  </div>
+
+  
+    {% include 'base/js.html' %}
+    <script>
+    $(document).ready(function(){
+      {% block jquery %}{% endblock %}
+    })
+    </script>
+
+</main>
+
+
+  </body>
+</html>

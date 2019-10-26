@@ -1,0 +1,18 @@
+{% extends "todo_list/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<title>Create Team</title>
+ <div class="content-section">
+ 	<form method="POST">
+ 		{% csrf_token %}
+ 		<fieldset class = "form-group">
+ 			<legend class="border-bottom mb-4">Team</legend>
+ 			{{ form|crispy }}
+ 			<small>Hold down control when you click to select multiple members.</small>
+ 		</fieldset>
+ 		<div class="form-group">
+ 			<button class="btn btn-outline-info" type="submit">Update</button>
+ 		</div>
+ 	</form>
+ </div>
+{% endblock content %}

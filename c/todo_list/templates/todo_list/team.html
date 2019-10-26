@@ -1,0 +1,167 @@
+{% extends "todo_list/chartsbase.html" %}
+{% block content %}
+<title>Team Dashboard</title>
+<h1>Team Dashboard</h1>
+
+ {% for team in teams %}
+
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'user-tasks' team.leader.username %}">{{ team.leader.first_name}} {{ team.leader.last_name}}</a>
+    </div>
+    <h2>
+    <a class="article-title" href="{% url 'team-detail' team.id %}">{{team.name}}</a> 
+	</h2>
+    <p class="article-content">{{ team.description }}</p>
+  </div>
+
+</article>
+
+  
+ {% endfor %}
+{% endblock content %}
+
+
+<script>
+{% block jquery %}
+var endpoint = '/api/data2/'
+
+
+var defaultData = []
+var defaultData2 =[]
+var defaultData3 =[]
+var labels = [];
+var backgroundColor = []
+var backgroundColor2 = []
+var backgroundColor3 = []
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        labels = data.labels
+        defaultData = data.day
+        defaultData2 = data.week
+        defaultData3 = data.month
+        backgroundColor = data.backgroundColor
+        backgroundColor2 = data.backgroundColor2
+        backgroundColor3 = data.backgroundColor3
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+
+function setChart(){
+    var ctx = document.getElementById("myChart");
+    var ctx2 = document.getElementById("myChart2");
+    var ctx3 = document.getElementById("myChart3");
+
+var config = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: defaultData,
+            
+                backgroundColor: backgroundColor,
+                    label: 'Dataset 1'
+                }],
+                labels: labels
+            },
+            
+            options: {
+                responsive: true,
+                animation:{
+                animateScale: true,
+                    },
+               
+            }
+        }
+
+var myChart = new Chart(ctx, config);
+
+var config2 = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: defaultData2,
+            
+                backgroundColor: backgroundColor2,
+                    label: 'Dataset 1'
+                }],
+                labels: labels
+            },
+            options: {
+                responsive: true,
+                animation:{
+                animateScale: true,
+                    },
+               
+            }
+        }
+
+var myChart2 = new Chart(ctx2, config2);
+
+
+    var config3 = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: defaultData3,
+            
+                backgroundColor: backgroundColor3,
+                    label: 'Dataset 1'
+                }],
+                labels: labels
+            },
+            options: {
+                responsive: true,
+                animation:{
+                animateScale: true,
+                    },
+               
+            }
+        }
+
+var myChart3 = new Chart(ctx3, config3);
+}
+
+
+// var ctx = document.getElementById("myChart");
+
+
+
+{% endblock %}
+</script>
+
+{% block contentS %}
+
+<h3>Progress Of All Tasks You Have Assigned</h3>
+<div class='row'>
+	
+    <div class='row' url-endpoint='{% url "api-data2" %}'>
+        <div class='col-sm-6'>
+        	<h5>Tasks Due Today</h5>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <div class='col-sm-6'>
+        	<h5>Tasks Due This Week</h5>
+            <canvas id="myChart2" width="400" height="400"></canvas>
+        </div>
+
+        <div class='col-sm-6'>
+        	<h5>Tasks Due This Month</h5>
+            <canvas id="myChart3" width="400" height="400"></canvas>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+{% endblock contentS %}
+
+

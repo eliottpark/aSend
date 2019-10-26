@@ -1,0 +1,94 @@
+{% extends "todo_list/base.html" %}
+{% block content %}
+<title>{{main.name}} Details</title>
+<h1>{{main.name}} Details</h1>
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'user-tasks' main.assigner.username %}">{{ main.assigner.first_name}} {{ main.assigner.last_name}}</a>
+      <small class="text-muted">{{main.due}} Recurring {{main.get_recurring_display}}</small>
+      
+      <div>{% if main.assigner == user %}
+        <a class="btn btn-outline-secondary btn-sm mt-1 mb-1" href="{% url 'task-update' main.id %}"> Update</a>
+        <a class="btn btn-outline-secondary btn-sm mt-1 mb-1" href="{% url 'task-subtask' main.id %}"> Assign Subtask</a>
+        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'task-delete' main.id %}"> Delete</a>
+      {% endif %}
+    </div>
+    </div>
+
+    <h2 class="article-title"> {{main.name}}</h2>
+    <p class="article-content">{{ main.description }}</p>
+  </div>
+</article>
+
+
+
+
+{% endblock content %}
+
+{% block content2 %}
+<div class="col-md-4">
+<div class="content-section">
+<h3>Unfinished Subtasks</h3>
+
+{% for task in sub %}
+
+
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'user-tasks' task.assigner.username %}">{{ task.assigner.first_name}} {{ task.assigner.last_name}}</a>
+      <small class="text-muted">{{task.due|date:"F d, Y"}}</small>
+    <a class="btn btn-outline-secondary btn-sm mt-0 mb-1" href ="{%url 'complete2' task.id main.id %}">Done</a>
+    </div>
+    <h2>
+    <a class="article-title" href="{% url 'task-detail' task.id %}">{{task.name}}</a> 
+    {% if task.subtasks %}
+  <small class="text-muted"> (Has Subtasks) </small>
+   {% endif %}
+  </h2>
+    <p class="article-content">{{ task.description }}</p> 
+  </div>
+
+</article>
+
+
+
+{% endfor %}
+
+</div>
+</div>
+{% endblock content2 %}
+
+
+{% block content3 %}
+<div class="col-md-4">
+<div class="content-section">
+<h3>Finished Subtasks</h3>
+
+{% for task in done %}
+
+
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'user-tasks' task.assigner.username %}">{{ task.assigner.first_name}} {{ task.assigner.last_name}}</a>
+      <small class="text-muted">{{task.due|date:"F d, Y"}}</small>
+    <a class="btn btn-outline-secondary btn-sm mt-0 mb-1" href ="{%url 'todo2' task.id main.id %}">Not Done</a>
+    </div>
+    <h2>
+    <a class="article-title" href="{% url 'task-detail' task.id %}">{{task.name}}</a> 
+  </h2>
+    <p class="article-content">{{ task.description }}</p>
+  </div>
+
+</article>
+
+
+
+{% endfor %}
+
+</div>
+</div>
+{% endblock content3 %}
+

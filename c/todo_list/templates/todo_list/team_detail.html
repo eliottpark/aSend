@@ -1,0 +1,185 @@
+{% extends "todo_list/chartsbase.html" %}
+{% block content %}
+
+<title>{{object.name}} Details</title>
+<h1>{{object.name}} Details</h1>
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'user-tasks' object.leader.username %}">{{ object.leader}}</a>
+      {% if object.leader == user %}
+      	<a class="btn btn-secondary btn-sm mt-1 mb-1" href="update/">Edit Team</a>
+      	<a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'team-delete' object.id %}"> Delete</a>
+      {% endif %}
+    </div>
+    <h2 class="article-title"> {{object.name}}</h2>
+    <p class="article-content">{{ object.description }}</p>
+  </div>
+</article>
+
+<div class="col-md-12">
+      <div class="content-section">
+       <h3>Members</h3>
+
+{% for member in object.members.all %}
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      
+      <small class="text-muted">{{member.username}}</small>
+    
+    <h2>
+    <a class="article-title" href="{% url 'user-tasks' member.username %}">{{member.first_name}} {{member.last_name}}</a> 
+  </h2>
+  </div>
+</article>
+{% endfor %}
+</div>
+</div>
+
+
+
+{% endblock content %}
+
+
+<script>
+{% block jquery %}
+
+var endpoint = '/api/data/'+'{{object.id}}'+'/'
+var defaultData = []
+var defaultData2 =[]
+var defaultData3 =[]
+var labels = [];
+var backgroundColor = []
+var backgroundColor2 = []
+var backgroundColor3 = []
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        labels = data.labels
+        defaultData = data.day
+        defaultData2 = data.week
+        defaultData3 = data.month
+        backgroundColor = data.backgroundColor
+        backgroundColor2 = data.backgroundColor2
+        backgroundColor3 = data.backgroundColor3
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+
+function setChart(){
+    var ctx = document.getElementById("myChart");
+    var ctx2 = document.getElementById("myChart2");
+    var ctx3 = document.getElementById("myChart3");
+
+var config = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: defaultData,
+            
+                backgroundColor: backgroundColor,
+                    label: 'Dataset 1'
+                }],
+                labels: labels
+            },
+            
+            options: {
+                responsive: true,
+                animation:{
+                animateScale: true,
+                    },
+               
+            }
+        }
+
+var myChart = new Chart(ctx, config);
+
+var config2 = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: defaultData2,
+            
+                backgroundColor: backgroundColor2,
+                    label: 'Dataset 1'
+                }],
+                labels: labels
+            },
+            options: {
+                responsive: true,
+                animation:{
+                animateScale: true,
+                    },
+               
+            }
+        }
+
+var myChart2 = new Chart(ctx2, config2);
+
+
+    var config3 = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: defaultData3,
+            
+                backgroundColor: backgroundColor3,
+                    label: 'Dataset 1'
+                }],
+                labels: labels
+            },
+            options: {
+                responsive: true,
+                animation:{
+                animateScale: true,
+                    },
+               
+            }
+        }
+
+var myChart3 = new Chart(ctx3, config3);
+}
+
+
+// var ctx = document.getElementById("myChart");
+
+
+
+{% endblock %}
+</script>
+
+{% block contentS %}
+
+
+<h3>Progress of {{object.name}} Tasks</h3>
+<div class='row'>
+    
+    <div class='row' url-endpoint='{% url "api-data" object.id %}'>
+        <div class='col-sm-6'>
+            <h5>Tasks Due Today</h5>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <div class='col-sm-6'>
+            <h5>Tasks Due This Week</h5>
+            <canvas id="myChart2" width="400" height="400"></canvas>
+        </div>
+
+        <div class='col-sm-6'>
+            <h5>Tasks Due This Month</h5>
+            <canvas id="myChart3" width="400" height="400"></canvas>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+{% endblock contentS %}
+

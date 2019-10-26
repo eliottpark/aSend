@@ -1,0 +1,141 @@
+{% extends 'todo_list/chartsbase.html' %}
+
+<script>
+{% block jquery %}
+var endpoint = '/api/chart/data/'
+var defaultData = []
+var defaultData2 =[]
+var defaultData3 =[]
+var labels = [];
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        labels = data.labels
+        defaultData = data.day
+        defaultData2 = data.week
+        defaultData3 = data.month
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+
+function setChart(){
+    var ctx = document.getElementById("myChart");
+    var ctx2 = document.getElementById("myChart2");
+    var ctx3 = document.getElementById("myChart3");
+
+var config = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: defaultData,
+            
+                backgroundColor: [
+                        
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(232, 42, 42, 0.8)',
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: labels
+            },
+            
+            options: {
+                responsive: true,
+                animation:{
+                animateScale: true,
+                    },
+               
+            }
+        }
+
+var myChart = new Chart(ctx, config);
+
+var config2 = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: defaultData2,
+            
+                backgroundColor: [
+                        
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(232, 42, 42, 0.6)',
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: labels
+            },
+            options: {
+                responsive: true,
+                animation:{
+                animateScale: true,
+                    },
+               
+            }
+        }
+
+var myChart2 = new Chart(ctx2, config2);
+
+
+    var config3 = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: defaultData3,
+            
+                backgroundColor: [
+                        
+                        'rgba(54, 162, 235, 0.4)',
+                        'rgba(232, 42, 42, 0.4)',
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: labels
+            },
+            options: {
+                responsive: true,
+                animation:{
+                animateScale: true,
+                    },
+               
+            }
+        }
+
+var myChart3 = new Chart(ctx3, config3);
+}
+
+
+// var ctx = document.getElementById("myChart");
+
+
+
+{% endblock %}
+</script>
+
+{% block contentS %}
+
+<div class='row'>
+    <div class='col-sm-12' url-endpoint='{% url "api-data" %}'>
+        <h1>Hello World</h1>
+        <div class='col-sm-3'>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <div class='col-sm-3'>
+            <canvas id="myChart2" width="400" height="400"></canvas>
+        </div>
+
+        <div class='col-sm-3'>
+            <canvas id="myChart3" width="400" height="400"></canvas>
+        </div>
+
+
+
+    </div>
+</div>
+
+{% endblock contentS %}
