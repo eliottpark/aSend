@@ -30,7 +30,7 @@
     <a class="btn btn-outline-secondary btn-sm mt-0 mb-1" href ="{%url 'entry-detail' entry.id%}">Fullscreen</a>
     </div>
     <h2>
-    <a class="article-title" href="{% url 'category-detail' entry.category.id %}">{{entry.category.name}}</a> 
+    <a class="article-title" href="{% url 'category-detail' entry.category.id %}">{{entry.rank}}: {{entry.creator}}</a> 
     
   </h2>
     <p class="article-content">{{ entry.video }}</p>
