@@ -11,7 +11,7 @@
     <a class="article-title" href="{% url 'category-detail' object.category.id %}">{{object.category.name}}</a> 
   </h2>
     <div class="article-metadata">
-      <a class="mr-2" href="{% url 'user-page' object.owner.username %}">{{ object.owner}}</a>
+      <a class="mr-2" href="{% url 'user-page' object.creator.username %}">{{object.creator}}</a>
       <small class="text-muted">{{object.value}} {{object.metric}}</small>
     </div>
 
