@@ -153,48 +153,6 @@
 
           return client;
       };
-
-      /* Helper: Return a list of all libraries accessible by user */
-      const get_content_libraries = async (client) => {
-        const lib_list = await client.ContentLibraries();
-        objectTag("Content Library List", lib_list, true);
-
-        return lib_list;
-      }
-      /* Helper: get all contents from one library */
-      // No await; returns a Promise
-      const get_content_from_library = async (client, libraryID) => {
-        const resp = client.ContentObjects({ 
-          "libraryId": libraryID,
-          "filterOptions": {
-            "select": "name",
-            "limit": 1,
-            "latestOnly": true,
-          }
-        });
-        return resp;
-      }
-
-      /* Returns a list of lists of contents */
-      const get_all_contents_from_all_libraries = async (client) => {
-        funcStartTag("get_all_contents_from_all_libraries");
-
-        const lib_list = await get_content_libraries(client);
-
-        var content_list = [];
-        for (let i = 0; i < lib_list.length; i++) {
-          content_list[i] = get_content_from_library(client, lib_list[i]);
-        }
-        let list = await Promise.all(content_list);
-          //.then(() => objectTag("Content List", content_list, true))
-          //.catch(err => console.log(err));// Parallizes content_list
-        objectTag("Content List", list, true);
-
-
-        funcEndTag();
-        return list;
-      }
-
       
 
 
@@ -259,7 +217,6 @@
         console.log("privateKey : " + privateKey + '\n');
 
         const client = await init_client(); // See init_client to get current Wallet
-        const content_list = await get_all_contents_from_all_libraries(client);
 
         let video;
         let content;
@@ -282,7 +239,7 @@
 
       }
 
-      main().then(console.log("*********DONE*********"));
+      main();
     </script>
 
 {% endblock %}
