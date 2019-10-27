@@ -15,6 +15,7 @@ urlpatterns = [
     path('entry/new/', EntryCreateView.as_view(), name='entry-create'),
     path('category/new/', CategoryCreateView.as_view(), name='category-create'),
     path('entry/<int:pk>/', EntryDetailView.as_view(), name='entry-detail'),
+    path('updateRank/<cat_id>/', views.updater, name='update')
 ]
 
 #app/model_viewtype.html
