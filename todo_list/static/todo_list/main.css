@@ -167,7 +167,7 @@ body {
                                     /* Home Profile pic above post */
 
                                     .usernameandpic{
-                                        flex: 1;
+                                        flex: .28;
                                         display: inline-block;
                                         vertical-align: middle;
                                     }
