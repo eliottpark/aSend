@@ -5,21 +5,267 @@
 
 <title>{{object.name}} Details</title>
 <h1>{{object.name}}</h1>
-<article class="media contentbody">
-  <div class="media-body">
-      <h2>
-    <a class="article-title" href="{% url 'category-detail' object.category.id %}">{{object.category.name}}</a> 
-  </h2>
-    <div class="article-metadata">
-      <a class="mr-2" href="{% url 'user-page' object.creator.username %}">{{object.creator}}</a>
-      <small class="text-muted">{{object.value}} {{object.metric}}</small>
-    </div>
+<div class="w3-card-6" style="width:56%">
+    
+                <div class="container">
 
-    <p class="article-content">{{ object.video}}</p>
-  </div>
-</article>
+    
+                    <div class="imagepadding">
+    
+                        <!-- BootStrap Class For adding Border arround picture -->
+                        <div class="panel panel-primary column-container">
+                            <!-- SECTION 1 Ranking category PROFILE & user name -->
+                            <div class="section1">
+                              <div class = "article-title">
+                                <strong href = "{% url 'category-detail' object.category.id %}"># {{object.rank}} in {{object.category}}</strong>
+                              </div>
+
+                              <!-- Profile Picture and User name for account -->
+                              <div class="usernameandpic">
+                                <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
+                                <div class="article-user">
+                                  <strong href="{% url 'user-page' object.creator.username %}">{{object.creator.username}}</strong>
+                                </div>
+                              </div>
+                            </div>
+                           
+                            <!-- SECTION 2 (IMAGE) -->
+                            <!-- Posted video -->
+                            <div class="video-default">
+                              <video id='video0' style="width:100%;margin-left: 0%;margin-top:15px;" controls autoplay loop>
+                                <!--
+                                <source src="{% static 'dunk.mp4' %}" type=video/mp4 >
+                                -->
+                              </video>
+                            </div>
+    
+                            <!--Like & comment Section 
+                            <div class="container">
+                                <div class='likesect'>
+    
+                                    <span class="like-row">
+                                        {% if true %}
+                                        <img class="likedhrt" src="{% static 'liked.png' %}" alt="liked picture"> 
+                                        {% else %}
+                                        <img class="unlikehrt" src="{% static 'like.png' %}" alt="not liked picture" class="img-responsive"> 
+                                        {% endif %}
+                                        <img class="commenthrt" id='comment-icon' src="{% static 'comment.png' %}"class="img-responsive" alt=" commentImage">
+                                        <img class="savehrt" src="{% static 'unsaved.png' %}" alt="save picture">
+                                            
+                                        </p>
+                                    </span>
+                                    </div>
+                                    -->
+                            <!-- Caption Section -->
+                            <div class="video-description-default">
+                              <div class="container-fluid p-2"><strong>{{object.creator.username}}</strong> {{object.description}}
+                              </div>
+                            </div>
+
+                            <!--Comment Section 
+                            {% if task.team %} {% for member in task.team %}
+                            <strong> "{{member.username}}" </strong>
+                            {% endfor %}{% else %}
+
+                            <div class='commentsection'>
+                                    <input type='text' id='cmnt' placeholder='Add a comment...'>
+                                    <span class='dot02'></span>
+                                </div>
+                            {% endif %} 
+
+                                </div> End like & comment section-->
+
+                                
+                          </div> <!--End panel primary-->
+    
+    
+                      </div> <!--End image padding-->
+    
+                  </div> <!--End container-->
 
 
 
+
+
+<script type="text/javascript">
+      /* index.js */
+      const privateKey = "0xa9ef73043561d10056e07c67546c1e321e2f89055eb5a7459fd9ae44d75b55bf";
+      const mnemonic = "ritual render safe tongue destroy evoke original walk fog kick video pipe";
+      const videoIdList = ["video0", "video1", "video2", "video3"];
+
+      /* Utils */
+      const funcStartTag = (tag) => console.log('######### ' + tag + '() #########');
+      const funcEndTag = () => console.log('###############################' + '\n');
+      const objectTag = (name, object, type) => {
+        if (type) {
+          console.log(name + ': ');
+          //console.log(util.inspect(object, {showHidden: false, depth: null})); // too lazy to requre
+          console.log(object); // Doesn't show depth
+          console.log();
+        } else {
+          console.log(name + ': ' + object + '\n');
+        }
+      }
+
+      /* Initialize ElvClient with given privateKey */
+      const init_client = async () => {
+        funcStartTag('init_client');
+
+        const configUrl = "https://demo.net955210.contentfabric.io/config";
+        const client = await ElvClient.FromConfigurationUrl({configUrl}).catch(err => console.log(err));
+        const wallet = client.GenerateWallet();
+
+        const signer = wallet.AddAccount({"accountName": "main" ,"privateKey": privateKey});
+        //const signer = wallet.AddAccountFromMnemonic({mnemonic}); // does the same as above
+
+        client.SetSigner({signer}); // "main" becomes the current account
+
+        objectTag('Wallet', wallet, true);
+        objectTag('Signer', signer, true);
+
+        // Shows how to get balance without keeping Wallet
+          let balance = await wallet.GetAccountBalance({signer});
+          objectTag("Account Balance (wallet)", balance, false);
+
+          const accountAddress = client.CurrentAccountAddress();
+          objectTag('Account Address', accountAddress, false);
+          balance = await client.GetBalance({"address": accountAddress});
+          objectTag("Account Balance (client)", balance, false);
+
+          funcEndTag();
+
+          return client;
+      };
+
+      /* Helper: Return a list of all libraries accessible by user */
+      const get_content_libraries = async (client) => {
+        const lib_list = await client.ContentLibraries();
+        objectTag("Content Library List", lib_list, true);
+
+        return lib_list;
+      }
+      /* Helper: get all contents from one library */
+      // No await; returns a Promise
+      const get_content_from_library = async (client, libraryID) => {
+        const resp = client.ContentObjects({ 
+          "libraryId": libraryID,
+          "filterOptions": {
+            "select": "name",
+            "limit": 1,
+            "latestOnly": true,
+          }
+        });
+        return resp;
+      }
+
+      /* Returns a list of lists of contents */
+      const get_all_contents_from_all_libraries = async (client) => {
+        funcStartTag("get_all_contents_from_all_libraries");
+
+        const lib_list = await get_content_libraries(client);
+
+        var content_list = [];
+        for (let i = 0; i < lib_list.length; i++) {
+          content_list[i] = get_content_from_library(client, lib_list[i]);
+        }
+        let list = await Promise.all(content_list);
+          //.then(() => objectTag("Content List", content_list, true))
+          //.catch(err => console.log(err));// Parallizes content_list
+        objectTag("Content List", list, true);
+
+
+        funcEndTag();
+        return list;
+      }
+
+      
+
+
+      /* init video players and load */
+
+      const PlayHLS = (video, playoutOptions) => {
+        const playoutUrl =`${playoutOptions.hls.playoutUrl}&player_profile=hls-js`;
+        const player = new Hls();
+        player.loadSource(playoutUrl);
+        player.attachMedia(video);
+        // Autoplay
+        player.on(Hls.Events.MANIFEST_PARSED, () => {
+          video.play();
+        });
+      };
+
+      const PlayDash = (authToken, video, playoutOptions) => {
+        const player = dashjs.MediaPlayer().create();
+        if(playoutOptions.dash.drms) {
+          const widevineUrl = playoutOptions.dash.drms.widevine.licenseServers
+            .find(server => server.startsWith("https"));
+          player.setProtectionData({
+            "com.widevine.alpha": {
+              "serverURL": widevineUrl,
+              "httpRequestHeaders": {
+                "Authorization": `Bearer ${authToken}`
+              },
+              "withCredentials": false
+            }
+          });
+        }
+        player.initialize(video, playoutOptions.dash.playoutUrl, true);
+      };
+
+      const Load = async (client, objectId, video) => {
+        funcStartTag("Load");
+        const availableDRMs = await client.AvailableDRMs();
+        const playoutOptions = await client.PlayoutOptions({
+          "objectId": objectId,
+          protocols: ["dash", "hls"],
+          drms: availableDRMs
+        });
+        
+        console.log('playout');
+
+        if(playoutOptions.hls) {
+          PlayHLS(video, playoutOptions);
+        } else {
+          console.log("DASH");
+          const authToken = await client.GenerateStateChannelToken({"objectId": objectId});
+          PlayDash(authToken, video, playoutOptions);
+        }
+      };
+
+
+
+
+
+      /* Main function */
+      const main = async() => {
+
+        console.log("privateKey : " + privateKey + '\n');
+
+        const client = await init_client(); // See init_client to get current Wallet
+        const content_list = await get_all_contents_from_all_libraries(client);
+
+        let video;
+        let content;
+
+        funcStartTag("Starting Loop");
+
+        let list = ["{{object.video}}"]
+        for (let i = 0; i < 3; i++) {
+          video = document.getElementById(videoIdList[i]); 
+          console.log('video: ' + video);
+          content = list[i]
+          console.log("id: " + content);
+          Load(client, content, video);
+        }
+
+        console.log("done with loop");
+
+        // const video = document.getElementById("video");
+
+
+      }
+
+      main().then(console.log("*********DONE*********"));
+    </script>
 
 {% endblock content %}
