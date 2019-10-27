@@ -28,7 +28,7 @@
                               <div class="usernameandpic">
                                 <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
                                 <div class="usernamehome-dp">
-                                  <strong href="{% url 'user-page' first.creator.username %}">{{entrylist0.creator.username}}</strong>
+                                  <strong href="{% url 'user-page' entrylist0.creator.username %}">{{entrylist0.creator.username}}</strong>
                                 </div>
                               </div>
                             </div>
@@ -112,7 +112,7 @@
                               <div class="usernameandpic">
                                 <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
                                 <div class="usernamehome-dp">
-                                  <strong href="{% url 'user-page' first.creator.username %}">{{entrylist1.creator.username}}</strong>
+                                  <strong href="{% url 'user-page' entrylist1.creator.username %}">{{entrylist1.creator.username}}</strong>
                                 </div>
                               </div>
                             </div>
@@ -196,7 +196,7 @@
                                         <div class="usernameandpic">
                                           <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
                                           <div class="usernamehome-dp">
-                                            <strong href="{% url 'user-page' first.creator.username %}">{{entrylist2.creator.username}}</strong>
+                                            <strong href="{% url 'user-page' entrylist2.creator.username %}">{{entrylist2.creator.username}}</strong>
                                           </div>
                                         </div>
                                       </div>
@@ -445,11 +445,7 @@
 
         funcStartTag("Starting Loop");
 
-<<<<<<< HEAD
-        let list = ['{{entrylist[0].video}}', '{{entrylist[1].video}}', '{{entrylist[2].video}}']
-=======
-        let list = ['{{entrylist[0].video}}', '{{entrylist[1].video}}', '{{entrylist[1].video}}']
->>>>>>> 8cffec2f9e61481af28d5afdddf80c7c19f3e84c
+        let list = ['{{entrylist0.video}}', '{{entrylist1.video}}', '{{entrylist2.video}}']
         for (let i = 0; i < 3; i++) {
           video = document.getElementById(videoIdList[i]); 
           console.log('video: ' + video);
