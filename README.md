@@ -1,2 +1,3 @@
-# calhacks2019
-where our fire project lives
+# aSend (Cal Hacks 2019)
+
+Crowdsourced Record Compiler powered by Blockchain
