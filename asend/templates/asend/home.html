@@ -1,0 +1,108 @@
+{% extends "asend/base.html" %}
+{% load static %}
+{% load bootstrap3 %} 
+{% block content %} 
+{{block.super}}
+
+<div class="homebody">
+        <div class="container">
+    
+    
+    
+    
+            <!-- SECTION 1 -->
+    
+            <!-- USED TO STYLE PICTURE-BODYSIZE IN HOME-PAGE  -->
+            <div class="w3-card-6" style="width:56%">
+    
+                <div class="container">
+
+    
+                    <div class="imagepadding">
+    
+                        <!-- BootStrap Class For adding Border arround picture -->
+                        <div class="panel panel-primary">
+    
+                            <!-- SECTION 1 PROFILE & user name -->
+    
+                            <!-- Profile Picture and User name for account -->
+                            
+                            <p class="usernamehome-dp">
+                                <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
+                            <strong>{{first.creator.username}}</strong>
+                            </p>
+                           
+                            <!-- SECTION 2 (IMAGE) -->
+                            <!-- Posted video -->
+                            <video style="width:100%;margin-left: 0%;margin-top:15px;" controls autoplay loop>
+                              <source src="{% static 'dunk.mp4' %}" type=video/mp4 >
+                            </video>
+    
+                            <!--Like & comment Section 
+                            <div class="container">
+                                <div class='likesect'>
+    
+                                    <span class="like-row">
+                                        {% if true %}
+                                        <img class="likedhrt" src="{% static 'liked.png' %}" alt="liked picture"> 
+                                        {% else %}
+                                        <img class="unlikehrt" src="{% static 'like.png' %}" alt="not liked picture" class="img-responsive"> 
+                                        {% endif %}
+                                        <img class="commenthrt" id='comment-icon' src="{% static 'comment.png' %}"class="img-responsive" alt=" commentImage">
+                                        <img class="savehrt" src="{% static 'unsaved.png' %}" alt="save picture">
+                                            
+                                        </p>
+                                    </span>
+                                    </div>
+                                    -->
+                            <!-- Caption Section -->
+                            
+                            <div class="container-fluid p-2"><strong>{{first.creator.username}}</strong> {{first.description}}
+                            </div>
+
+                            <!--Comment Section 
+                            {% if task.team %} {% for member in task.team %}
+                            <strong> "{{member.username}}" </strong>
+                            {% endfor %}{% else %}
+
+                            <div class='commentsection'>
+                                    <input type='text' id='cmnt' placeholder='Add a comment...'>
+                                    <span class='dot02'></span>
+                                </div>
+                            {% endif %} 
+
+                                </div> End like & comment section-->
+
+                                
+                            </div> <!--End panel primary-->
+    
+    
+                        </div> <!--End image padding-->
+    
+                    </div> <!--End container-->
+    
+    
+                </div> <!--End w3 card-->
+            </div> <!--End container-->
+    </div> <!--End homebody-->
+{% endblock %}
+<!-- firt = Entry
+
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'home' %}">{{first.creator.username}}</a>
+      <small class="text-muted"><font color="red">{{first.value}} {{first.metric}}</font></small>
+      
+    <a class="btn btn-outline-secondary btn-sm mt-0 mb-1" href ="{%url 'entry-detail' first.id%}">Fullscreen</a>
+    </div>
+    <h2>
+    <a class="article-title" href="{% url 'category-detail' first.category.id %}">{{first.category.name}}</a> 
+    
+  </h2>
+    <p class="article-content">{{ first.video }}</p>
+  </div>
+
+</article>
+-->
+

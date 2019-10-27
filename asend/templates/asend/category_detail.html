@@ -1,0 +1,47 @@
+{% extends "asend/base.html" %}
+{% block content %}
+<!-- object = Category
+-->
+<title>{{object.name}} Details</title>
+<h1>{{object.name}} Details</h1>
+
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+    </div>
+    <h2 class="article-title"> {{object.name}}</h2>
+    <p class="article-content">{{ object.description }}</p>
+  </div>
+</article>
+
+<div class="col-md-12">
+      <div class="content-section">
+       <h3>Entries</h3>
+
+<!-- entries = Entry[]
+-->
+{% for entry in entries %}
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'home' %}">{{entry.creator.username}}</a>
+      <small class="text-muted"><font color="red">{{entry.value}} {{entry.metric}}</font></small>
+      
+    <a class="btn btn-outline-secondary btn-sm mt-0 mb-1" href ="{%url 'entry-detail' entry.id%}">Fullscreen</a>
+    </div>
+    <h2>
+    <a class="article-title" href="{% url 'category-detail' entry.category.id %}">{{entry.category.name}}</a> 
+    
+  </h2>
+    <p class="article-content">{{ entry.video }}</p>
+  </div>
+
+</article>
+{% endfor %}
+</div>
+</div>
+
+
+
+{% endblock content %}
+

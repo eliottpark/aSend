@@ -1,0 +1,25 @@
+{% extends "asend/base.html" %}
+{% block content %}
+<!-- object = Entry
+-->
+
+<title>{{object.name}} Details</title>
+<h1>{{object.name}}</h1>
+<article class="media content-section">
+  <div class="media-body">
+      <h2>
+    <a class="article-title" href="{% url 'category-detail' object.category.id %}">{{object.category.name}}</a> 
+  </h2>
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'home' %}">{{ object.owner}}</a>
+      <small class="text-muted">{{object.value}} {{object.metric}}</small>
+    </div>
+
+    <p class="article-content">{{ object.video}}</p>
+  </div>
+</article>
+
+
+
+
+{% endblock content %}

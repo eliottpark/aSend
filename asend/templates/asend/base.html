@@ -1,0 +1,119 @@
+{% load bootstrap3 %} 
+{% load static %}
+<!DOCTYPE html>
+{% if email %}
+<meta http-equiv="Refresh" content="0; url=/dashboard/email/">
+{% endif %}
+
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- STYLING CSS LINKED HERE -->
+    <link href="{% static 'todo_list/main.css' %}" rel="stylesheet">
+
+    <!-- FONT AWESOME ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    {% block styles %} {% bootstrap_css %}{% endblock %}
+
+
+
+
+
+</head>
+<body>
+  
+
+  <nav class="navbar navbar-default navbar-expand-md  navbar-fixed-top">
+    <div class="container">
+      
+      <a href = '{%url "homepage" %}'>
+                <img src="../../../static/asend.png" alt="asend logo on nav-bar " class="navbar-align-middle" style="height:75px;" >
+            </a>
+
+      <!--
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        -->
+        <div class="navbar-nav mr-auto">
+      
+        </div>
+        <!-- Navbar Right Side -->
+        <ul class="nav navbar-nav navbar-right navbar-align-bottom navbarlist">
+          {% if user.is_authenticated %}
+            <li>
+            <a class="nav-item nav-link" href ="{%url 'entry-create' %}">New Entry</a>
+          </li>
+
+          <li>
+            <a class="nav-item nav-link" href="{% url 'category-create' %}">New Category</a>
+            </li>
+
+            <li>
+            <a class="nav-item nav-link"><font color="grey">|</font></a>
+          </li>
+
+            <li>
+            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+
+          <li>
+            <a class="nav-item nav-link" href="{% url 'profile' %}">
+              <i class="material-icons" style="font-size:25px">account_circle</i>
+            </a>
+          </li>
+
+
+          {% else %}
+          <li>
+            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+
+            <li>
+            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+
+          {% endif %}
+        </ul>
+      
+
+    </div>
+  </nav>
+
+      
+    </div>
+
+</nav>
+
+
+
+	
+  
+<body>
+
+  <div class="container-fluid" id="body">
+        {% block content %} 
+        
+        {% endblock %}
+    </div>
+     
+
+    {% block scripts %}
+    <script type="text/javascript" src="{% static 'css/app.js' %}"></script>
+
+    {% bootstrap_javascript %} 
+    {% endblock %}
+
+</body>
+
+
+</html>
+
