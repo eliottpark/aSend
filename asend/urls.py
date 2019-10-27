@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import EntryListView, CategoryDetailView, EntryCreateView, CategoryCreateView, EntryDetailView
+from .views import UserEntries, EntryListView, CategoryDetailView, EntryCreateView, CategoryCreateView, EntryDetailView
 from . import views
 from django.urls import path, include
 
@@ -15,7 +15,8 @@ urlpatterns = [
     path('entry/new/', EntryCreateView.as_view(), name='entry-create'),
     path('category/new/', CategoryCreateView.as_view(), name='category-create'),
     path('entry/<int:pk>/', EntryDetailView.as_view(), name='entry-detail'),
-    path('updateRank/<cat_id>/', views.updater, name='update')
+    path('updateRank/<cat_id>/', views.updater, name='update'),
+    path('user/<str:username>/', UserEntries.as_view(), name='user-page'),
 ]
 
 #app/model_viewtype.html
