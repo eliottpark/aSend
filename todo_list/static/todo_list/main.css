@@ -151,12 +151,14 @@ body {
                                       margin-top: 13%;
                                       margin-left: 25%;
                                       margin-right: 25%;
+                                      
                                     }
 
                                     .fullscreen{
                                       margin-top: 13%;
                                       margin-left: 5%;
                                       margin-right: 5%;
+                                      background-color: #614260;
                                     }
 
 
@@ -310,7 +312,7 @@ body {
                                         outline: none;
                                         overflow-x: scroll;
                                         padding: 0;
-                                        background: none;
+                                        background: #614260;
                                         border: none;
                                         color: #999;
                                         width: 100%;
