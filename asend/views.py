@@ -99,19 +99,14 @@ class UserEntries(LoginRequiredMixin, ListView):
 	model = Entry
 	template_name = 'asend/user_entries.html'
 	ordering = ['due']
+	context_object_name = 'entries'
 	
 	def get_queryset(self):
 		user = get_object_or_404(User, username=self.kwargs.get('username'))
-		return Task.objects.filter(assignee=user).filter(parent=None).order_by('due')
+		return Entry.objects.filter(creator=user).order_by('rank')
 
 	def get_context_data(self, **kwargs):
 		user = get_object_or_404(User, username=self.kwargs.get('username'))
-		context = super(UserTaskListView, self).get_context_data(**kwargs)
-		context['user'] = user
-		context['tasks'] = Task.objects.filter(status='TD').filter(assignee=user).filter(parent=None).order_by('due')
-		context['done'] = Task.objects.filter(status='D').filter(assignee=user).filter(parent=None).order_by('finished')[:15]
-		context['pend'] = Task.objects.filter(status='P').filter(assignee=user).order_by('due')
-		context['width'] = '4'
-		context['email'] = Email.objects.all().exists()
+		context = super(UserEntries, self).get_context_data(**kwargs)
 		return context
 	
