@@ -4,19 +4,21 @@
 {% block content %} 
 {{block.super}}
 
-<title>Tasks for {{user.first_name}} {{user.last_name}}</title>
-<div class="media">
-   
-      <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
-      <div>
-        <h1>Tasks for {{user.first_name}} {{user.last_name}}</h1>
-        <div class="article-metadata"> Email: {{user.email}}</div>
-      
-    </div>
-  </div>
+
        
  <div class="homebody">
-        <div class="container">
+      <div class="container">
+
+      <title>{{user.first_name}} {{user.last_name}}</title>
+      <div class="profile-containter">
+            <div>
+              <img class="circleprofile-dp" src="{{user.profile.image.url}}">
+            </div>
+            <div>
+              <h1> {{user.first_name}} {{user.last_name}}</h1>
+              <div class="article-subtitles" > Email: {{user.email}}</div>
+            </div>
+        </div>
 
  {% for entrylist0 in entries %}
 
