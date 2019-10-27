@@ -198,6 +198,7 @@ body {
                                         font-size: 20px;
                                         color: #8e03fa;
                                         flex: 1;
+                                        text-decoration: none;
                                     }
                                     
                                     .circlehome-dp{
@@ -1076,3 +1077,29 @@ body {
     }
 /* ----------------------------------------------- */ 
 /* ######################################################################################### */
+
+    .article-title {
+      font-size: 20px;
+      color: #5335e8;
+      flex:1;
+    }
+
+    .article-title:hover {
+      font-size: 20px;
+      color: #8e03fa;
+      flex: 1;
+      text-decoration: none;
+    }
+
+    .article-user {
+      font-size: 15px;
+      color: #5335e8;
+      flex:1;
+    }
+
+    .article-user:hover {
+      font-size: 15px;
+      color: #8e03fa;
+      flex: 1;
+      text-decoration: none;
+    }

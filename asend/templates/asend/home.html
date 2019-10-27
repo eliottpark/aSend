@@ -20,23 +20,17 @@
                         <div class="panel panel-primary column-container">
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
                             <div class="section1">
-                              <a href="{% url 'category-detail' entrylist0.category.id %}">
-                                <div class = "rankinghome-dp">
-                                  <strong># {{entrylist0.rank}} in {{entrylist0.category}}</strong>
-                                </div>
-                              </a>  
+                              <div class = "article-title">
+                                <strong href = "{% url 'category-detail' entrylist0.category.id %}"># {{entrylist0.rank}} in {{entrylist0.category}}</strong>
+                              </div>
 
                               <!-- Profile Picture and User name for account -->
-                              
-                                <div class="usernameandpic">
-                                  <img src="{entrylist0.creator.profile.image}" class="circlehome-dp" alt="signuplogo ">
-                                  <a href="{% url 'user-page' entrylist0.creator.username %}">
-                                    <div class="usernamehome-dp">
-                                      <strong>{{entrylist0.creator.username}}</strong>
-                                    </div>
-                                  </a>  
+                              <div class="usernameandpic">
+                                <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
+                                <div class="article-user">
+                                  <strong href="{% url 'user-page' entrylist0.creator.username %}">{{entrylist0.creator.username}}</strong>
                                 </div>
-                                
+                              </div>
                             </div>
                            
                             <!-- SECTION 2 (IMAGE) -->
@@ -110,21 +104,17 @@
                         <div class="panel panel-primary column-container">
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
                             <div class="section1">
-                              <a href="{% url 'category-detail' entrylist1.category.id %}">
-                                <div class = "rankinghome-dp" >
-                                  <strong># {{entrylist1.rank}} in {{entrylist1.category}}</strong>
-                                </div>
-                                </a>
+                              <div class = "article-title">
+                                <strong href = "{% url 'category-detail' entrylist1.category.id %}" ># {{entrylist1.rank}} in {{entrylist1.category}}</strong>
+                              </div>
 
                               <!-- Profile Picture and User name for account -->
                               <div class="usernameandpic">
-                                  <img src="{{entrylist1.creator.profile.image}}" class="circlehome-dp" alt="signuplogo ">
-                                  <a href="{% url 'user-page' entrylist1.creator.username %}">
-                                    <div class="usernamehome-dp">
-                                      <strong>{{entrylist1.creator.username}}</strong>
-                                    </div>
-                                  </a>  
+                                <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
+                                <div class="article-user">
+                                  <strong href="{% url 'user-page' entrylist1.creator.username %}">{{entrylist1.creator.username}}</strong>
                                 </div>
+                              </div>
                             </div>
                            
                             <!-- SECTION 2 (VIDEO) -->
@@ -198,20 +188,18 @@
                                   <div class="panel panel-primary column-container">
                                       <!-- SECTION 1 Ranking category PROFILE & user name -->
                                       <div class="section1">
-                                        <div class = "rankinghome-dp">
-                                          <a href="{% url 'category-detail' entrylist2.category.id %}">
-                                            <strong ># {{entrylist2.rank}} in {{entrylist2.category}}</strong>
-                                            </a>
+                                        <div class = "article-title">
+                                          <strong href = "{% url 'category-detail' entrylist1.category.id %}"># {{entrylist2.rank}} in {{entrylist2.category}}</strong>
                                         </div>
 
                                         <!-- Profile Picture and User name for account -->
                                         <div class="usernameandpic">
-                                          <img src="{{entrylist2.creator.profile.image}}" class="circlehome-dp" alt="signuplogo ">
-                                          <a href="{% url 'user-page' entrylist2.creator.username %}">
-                                            <div class="usernamehome-dp">
-                                              <strong>{{entrylist2.creator.username}}</strong>
-                                            </div>
-                                          </a>
+                                          <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
+                                          <div class="article-user">
+                                            <a href="{% url 'user-page' entrylist2.creator.username %}">
+                                            <strong >{{entrylist2.creator.username}}</strong>
+                                            </a>
+                                          </div>
                                         </div>
                                       </div>
                                     

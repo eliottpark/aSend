@@ -34,14 +34,14 @@
                         <div class="panel panel-primary column-container">
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
                             <div class="section1">
-                              <div class = "rankinghome-dp">
+                              <div class = "article-title">
                                 <strong href = "{% url 'category-detail' entrylist0.category.id %}"># {{entrylist0.rank}} in {{entrylist0.category}}</strong>
                               </div>
 
                               <!-- Profile Picture and User name for account -->
                               <div class="usernameandpic">
                                 <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
-                                <div class="usernamehome-dp">
+                                <div class="article-user">
                                   <strong href="{% url 'user-page' entrylist0.creator.username %}">{{entrylist0.creator.username}}</strong>
                                 </div>
                               </div>
@@ -115,14 +115,14 @@
                         <div class="panel panel-primary column-container">
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
                             <div class="section1">
-                              <div class = "rankinghome-dp">
+                              <div class = "article-title">
                                 <strong href = "{% url 'category-detail' entrylist1.category.id %}" ># {{entrylist1.rank}} in {{entrylist1.category}}</strong>
                               </div>
 
                               <!-- Profile Picture and User name for account -->
                               <div class="usernameandpic">
                                 <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
-                                <div class="usernamehome-dp">
+                                <div class="article-user">
                                   <strong href="{% url 'user-page' entrylist1.creator.username %}">{{entrylist1.creator.username}}</strong>
                                 </div>
                               </div>
