@@ -40,7 +40,7 @@ ul {
   color: #2b3566;
 }
 
-a.article-title:hover {
+.article-title:hover {
   color: #3c8acf;
   text-decoration: none;
 }

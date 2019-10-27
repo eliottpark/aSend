@@ -43,6 +43,7 @@ def profile(request):
 		'p_form': p_form,
 		'name': 'Profile',
 		'width': '8',
+		'profile': True,
 	}
 	return render(request, 'users/profile.html', context)
 

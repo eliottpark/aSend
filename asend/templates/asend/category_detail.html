@@ -32,7 +32,14 @@
                       <div class="entry-subtitiles">{{entry.value}} {{entry.metric}}</div>
                     </div>
                   <div right-margin="15px">
-                    <img src="{% static 'screenshots/asend.png' %}" style="height: 100px" alt="screenshot">
+
+                    <script type="text/javascript"> 
+                    var s = "{{entry.video}}"
+                    s = s +".jpg"
+                    s = 'static/' + s
+                  </script>
+
+                    <img onload="this.src=s;" style="height: 100px" alt="screenshot">
                   </div>
                </div>
             </div>

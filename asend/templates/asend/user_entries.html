@@ -7,15 +7,19 @@
  <div class="homebody">
       <div class="container">
 
+      <body>
+      <div style="width:800px; margin:0 auto;">
       <title>{{user0.first_name}} {{user0.last_name}}</title>
-      <div class="profile-containter">
-            <div>
-              <img class="circleprofile-dp" src="{{user0.profile.image.url}}">
+      <div style="width:800px; margin:0 auto;">
+            <div style="width:800px; margin:0 auto;">
+              <img style="margin:10 auto;" class="circleprofile-dp" src="{{user0.profile.image.url}}">
             </div>
             <div>
               <h1> {{user0.first_name}} {{user0.last_name}}</h1>
             </div>
         </div>
+      </div>
+    </body>
 
  {% for entrylist0 in entries %}
 
