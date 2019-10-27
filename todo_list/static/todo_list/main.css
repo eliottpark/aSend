@@ -147,7 +147,20 @@ body {
                                     .usernamehome-dp{
                                         font-size: 15px;
                                         margin-top: 15px;
-                                        margin-left: 3%;
+                                    }
+
+                                    .rankinghome-dp{
+                                        font-size: 15px;
+                                        margin-top: 15px;
+                                        margin-bottom: -1%;
+                                        color: #5335e8;
+                                    }
+                                
+                                    .rankinghome-dp:hover{
+                                        font-size: 15px;
+                                        margin-top: 15px;
+                                        margin-bottom: -1%;
+                                        color: #8e03fa;
                                     }
                                     
                                     .circlehome-dp{
@@ -158,6 +171,20 @@ body {
 
 
 /* ######################################################################################### */
+
+                                    .usernameright{
+                                        display: inline-block;
+                                    }
+
+                                    .rankingleft{
+                                        display: inline-block;
+                                    }
+
+                                    .section1{
+
+                                        display:flex;
+                                        justify-content: space-between;
+                                    }
 
                                     /* EXPLORE PAGE */
 
@@ -588,8 +615,19 @@ body {
         font-size: 15px;
         margin-top: 15px;
         margin-bottom: -1%;
-        margin-left: 3%;
-        font-size: 13px
+    }
+    .rankinghome-dp{
+        font-size: 15px;
+        margin-top: 15px;
+        margin-bottom: -1%;
+        color: #5335e8;
+    }
+
+    .rankinghome-dp:hover{
+        font-size: 15px;
+        margin-top: 15px;
+        margin-bottom: -1%;
+        color: #8e03fa;
     }
 
     /* Comment section */
@@ -720,9 +758,21 @@ body {
         font-size: 15px;
         margin-top: 15px;
         margin-bottom: -1%;
-        margin-left: 3%;
-        font-size: 13px
     }
+    .rankinghome-dp{
+        font-size: 15px;
+        margin-top: 15px;
+        margin-bottom: -1%;
+        color: #5335e8;
+    }
+
+    .rankinghome-dp:hover{
+        font-size: 15px;
+        margin-top: 15px;
+        margin-bottom: -1%;
+        color: #8e03fa;
+    }
+
     /* Comment section */
 
     .commentsection{

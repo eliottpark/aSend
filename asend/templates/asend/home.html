@@ -22,15 +22,20 @@
     
                         <!-- BootStrap Class For adding Border arround picture -->
                         <div class="panel panel-primary">
-    
-                            <!-- SECTION 1 PROFILE & user name -->
-    
-                            <!-- Profile Picture and User name for account -->
-                            <div class="container" float="right">
-                              <p class="usernamehome-dp">
+                            <div float="left">
+                              centered
+                            </div>
+                            <!-- SECTION 1 Ranking category PROFILE & user name -->
+                            <div class="container section1">
+                              <div class = "rankinghome-dp">
+                                <strong># {{first.creator.rank}} in {{first.creator.category}}</strong>
+                              </div>
+
+                              <!-- Profile Picture and User name for account -->
+                              <div class="usernamehome-dp">
                                   <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
                               <strong>{{first.creator.username}}</strong>
-                              </p>
+                              </div>
                             </div>
                            
                             <!-- SECTION 2 (IMAGE) -->
@@ -75,17 +80,17 @@
                                 </div> End like & comment section-->
 
                                 
-                            </div> <!--End panel primary-->
+                          </div> <!--End panel primary-->
     
     
-                        </div> <!--End image padding-->
+                      </div> <!--End image padding-->
     
-                    </div> <!--End container-->
+                  </div> <!--End container-->
     
     
-                </div> <!--End w3 card-->
-            </div> <!--End container-->
-    </div> <!--End homebody-->
+              </div> <!--End w3 card-->
+          </div> <!--End container-->
+  </div> <!--End homebody-->
 {% endblock %}
 <!-- firt = Entry
 
