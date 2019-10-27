@@ -6,7 +6,7 @@
 <title>{{object.name}} Details</title>
 
 <article class="contentbody">
-  <h2 class="article-title" text-align="center" width = "50%"> {{object.name}}</h2>
+  <strong><h1 class="article-title" text-align="center"> {{object.name}}</h1></strong>
 </article>
 <!--
 <div class="col-md-12">
@@ -32,14 +32,7 @@
                       <div class="entry-subtitiles">{{entry.value}} {{entry.metric}}</div>
                     </div>
                   <div right-margin="15px">
-
-                    <script type="text/javascript"> 
-                    var s = "{{entry.video}}"
-                    s = s +".jpg"
-                    s = 'static/' + s
-                  </script>
-
-                    <img onload="this.src=s;" style="height: 100px" alt="screenshot">
+                    <img src="{% static 'screenshots/download.png' %}" style="height: 100px" alt="screenshot">
                   </div>
                </div>
             </div>
