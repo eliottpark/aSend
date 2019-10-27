@@ -66,12 +66,32 @@ body {
 
                                     /*-- Video Styles -- */
 
+                                    .flex-container{
+                                        display:flex;
+                                        flex-direction: column;
+                                    }
+                                    .section1{
+                                        width: 100%;
+                                        display:flex;
+                                        justify-content: space-between;
+                                        align-items: flex-start;
+                                    }
+
                                     .video-default {
-                                      border: 5;
-                                      font-weight: bold;
-                                      padding: -4px;
-                                      
-                                  }
+                                      width: 100%;
+                                      display:flex;
+                                      justify-content: flex-start;
+                                      align-items: center;
+                                      margin-top:15px;
+                                    }
+
+                                    .video-description-default{
+                                        width: 100%;
+                                        display:flex;
+                                        justify-content: flex-start;
+                                        align-items: flex-end;
+                                        margin-top:15px;
+                                    }
 
 /* ######################################################################################### */
 
@@ -116,6 +136,7 @@ body {
                                     .homebody{
                                       margin-top: 13%;
                                       margin-left: 25%;
+                                      margin-right: 25%;
                                     }
 
                                     .navbar-fixed-bottom{
@@ -134,9 +155,11 @@ body {
 
 
                                     .panel-primary{
-                                      width: 56%;
+                                      width: 100%;
                                       border-color: rgb(216, 209, 209)!important;
                                     }
+
+                                    
 
                                     .imagepadding{
                                         padding-bottom: 70px;
@@ -178,12 +201,6 @@ body {
 
                                     .rankingleft{
                                         display: inline-block;
-                                    }
-
-                                    .section1{
-
-                                        display:flex;
-                                        justify-content: space-between;
                                     }
 
                                     /* EXPLORE PAGE */
@@ -315,7 +332,10 @@ body {
 
     .panel-primary{
         width: 56%;
+        display:flex;
+        flex-direction: column;
     }
+
  }
 
 
@@ -370,7 +390,10 @@ body {
 
     .panel-primary{
         width: 100%;
+        display:flex;
+        flex-direction: column;
     }
+    
     /* Like and Comment Section */
     .commentsection{
         width: 94%;
@@ -486,7 +509,11 @@ body {
 
     .panel-primary{
         width: 230%;
+        display:flex;
+        flex-direction: column;
     }
+    
+
     /* Like and Comment Section */
     .commentsection{
         width: 98%;
@@ -602,6 +629,8 @@ body {
 
     .panel-primary{
         width: 306%;
+        display:flex;
+        flex-direction: column;
         margin-top: 14%;
         border-color: #ffffff00!important;
     }
@@ -745,6 +774,7 @@ body {
 
     .panel-primary{
         width: 323%;
+        display:flex;
         margin-top: 14%;
         border-color: #ffffff00!important;
     }
@@ -891,6 +921,8 @@ body {
         /* Home Page Display */
     .panel-primary{
         width: 338%;
+        display:flex;
+        flex-direction: column;
         margin-top: 14%;
     }
 
@@ -920,8 +952,12 @@ body {
         /* Home Page Display */
     .panel-primary{
         width: 364%;
+        display:flex;
+        flex-direction: column;
         margin-top: 14%;
     }
+
+
     .commentsection{
         display: none;
     }
@@ -939,9 +975,11 @@ body {
         /* Home Page Display */
     .panel-primary{
         width: 382%;
-        margin-left: -134%;
+        display:flex;
+        flex-direction: column;
         margin-top: 14%;
     }
+
 
     .circlehome-dp{
         height: 28px;
@@ -1046,8 +1084,12 @@ body {
     
     .panel-primary{
         width: 382%;
+        display:flex;
+        flex-direction: column;
         margin-top: 14%;
     }
+
+
     .circlehome-dp{
         height: 26px;
         width: 26px;
