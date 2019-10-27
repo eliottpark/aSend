@@ -21,7 +21,7 @@
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
                             <div class="section1">
                               <div class = "rankinghome-dp">
-                                <strong># {{entrylist0.creator.rank}} in {{entrylist0.creator.category}}</strong>
+                                <strong href = "{% url 'category-detail' entrylist0.category.id %}"># {{entrylist0.rank}} in {{entrylist0.category}}</strong>
                               </div>
 
                               <!-- Profile Picture and User name for account -->
@@ -105,7 +105,7 @@
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
                             <div class="section1">
                               <div class = "rankinghome-dp">
-                                <strong># {{entrylist1.creator.rank}} in {{entrylist1.creator.category}}</strong>
+                                <strong href = "{% url 'category-detail' entrylist1.category.id %}" ># {{entrylist1.rank}} in {{entrylist1.category}}</strong>
                               </div>
 
                               <!-- Profile Picture and User name for account -->
@@ -189,7 +189,7 @@
                                       <!-- SECTION 1 Ranking category PROFILE & user name -->
                                       <div class="section1">
                                         <div class = "rankinghome-dp">
-                                          <strong># {{entrylist2.creator.rank}} in {{entrylist2.creator.category}}</strong>
+                                          <strong href = "{% url 'category-detail' entrylist1.category.id %}"># {{entrylist2.rank}} in {{entrylist2.category}}</strong>
                                         </div>
 
                                         <!-- Profile Picture and User name for account -->
