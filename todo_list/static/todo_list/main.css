@@ -1134,6 +1134,14 @@ body {
       margin-bottom: 15px;
     }
 
+    .entry-subtitles{
+        font-size: 40px;
+      color: #7D7D7D;
+      text-decoration: none;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
     .center{
         text-align: center;
     }
