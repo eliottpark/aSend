@@ -1,11 +1,16 @@
+
 {% extends "asend/base.html" %}
-{% block content %}
+{% load static %}
+{% load bootstrap3 %} 
+{% block content %} 
+
 <!-- object = Entry
 -->
+<div class="fullscreen">
+  <div class="container">
 
-<title>{{object.name}} Details</title>
-<h1>{{object.name}}</h1>
-<div class="w3-card-6" style="width:56%">
+
+<div class="w3-card-6" style="width:150%">
     
                 <div class="container">
 
@@ -15,17 +20,25 @@
                         <!-- BootStrap Class For adding Border arround picture -->
                         <div class="panel panel-primary column-container">
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
+                             
                             <div class="section1">
+                                <a href = "{% url 'category-detail' object.category.id %}" class = "article-title">
                               <div class = "article-title">
                                 <strong href = "{% url 'category-detail' object.category.id %}"># {{object.rank}} in {{object.category}}</strong>
                               </div>
+                          </a>
+
 
                               <!-- Profile Picture and User name for account -->
                               <div class="usernameandpic">
-                                <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
-                                <div class="article-user">
-                                  <strong href="{% url 'user-page' object.creator.username %}">{{object.creator.username}}</strong>
+
+
+                                <a href="{% url 'user-page' object.creator.username %}" class="article-user">
+                                    <div> <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo "> 
+                                    <strong>{{object.creator.username}}</strong>
                                 </div>
+                            </a>
+
                               </div>
                             </div>
                            
@@ -82,9 +95,13 @@
                       </div> <!--End image padding-->
     
                   </div> <!--End container-->
+    
+    
+              </div> <!--End w3 card-->
 
 
-
+</div>
+</div>
 
 
 <script type="text/javascript">
@@ -268,4 +285,4 @@
       main().then(console.log("*********DONE*********"));
     </script>
 
-{% endblock content %}
+{% endblock %}
