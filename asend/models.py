@@ -34,7 +34,7 @@ class Category(models.Model):
 	creator = models.CharField(max_length=100)
 	metric = models.CharField(max_length=100, null=True, blank=True)
 	def get_absolute_url(self):
-		return reverse('category-detai', kwargs={'pk': self.pk})
+		return reverse('category-detail', kwargs={'pk': self.pk})
 
 	def __str__(self):
 		return str(self.name)
