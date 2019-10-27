@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <title>Login</title>
- <div class="content-section">
+ <div class="contentbody">
  	<form method="POST">
  		{% csrf_token %}
  		<fieldset class = "form-group">
@@ -22,12 +22,3 @@
  	</div>
  </div>
 {% endblock content %}
-
-
-{% block content2 %}
-<div class="col-md-6">
-<div class="content-section">
-<img src="/media/AECS_Logo.jpg">
-</div>
-</div>
-{% endblock content2 %}
