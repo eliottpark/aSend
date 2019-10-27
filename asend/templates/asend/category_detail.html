@@ -3,15 +3,9 @@
 <!-- object = Category
 -->
 <title>{{object.name}} Details</title>
-<h1>{{object.name}}</h1>
 
-<article class="media contentbody">
-  <div class="media-body">
-    <div class="article-metadata">
-    </div>
-    <h2 class="article-title"> {{object.name}}</h2>
-    <p class="article-content"></p>
-  </div>
+<article class="contentbody">
+  <h2 class="article-title" text-align="center" width = "50%"> {{object.name}}</h2>
 </article>
 <!--
 <div class="col-md-12">
@@ -26,20 +20,21 @@
   <div class="w3-card-6" style="width:56%">
 
     <div class="container">
-        <div class = "smallimagepadding">
           <div class="panel panel-primary">
-            <div left-margin="15px">
-                <h2 class="article-title">
-                  <a  href="{% url 'user-page' entry.creator.username %}"># {{entry.rank}}: {{entry.creator}}</a> 
-                </h2>
-                <h3>{{entry.value}} {{entry.metric}}</h3>
-              
-              <a class="btn btn-outline-secondary btn-sm mt-0 mb-1" href ="{%url 'entry-detail' entry.id%}">Fullscreen</a>
-              </div>
+            <div class="row-container">
+                  <div class="container" left-margin="15px">
+                        <a class="article-title" href="{% url 'user-page' entry.creator.username %}">
+                          <div>
+                              # {{entry.rank}}: {{entry.creator}}
+                          </div>
+                        </a> 
+                      <h4>{{entry.value}} {{entry.metric}}</h4>
+                    </div>
+                  <div right-margin="15px">
+                    <img src="../../../todo_list/static/screenshots/asend.png" alt="screenshot">
+                  </div>
+               </div>
             </div>
-
-            </div>
-         </div>
      </div>
    </div>
 </article>

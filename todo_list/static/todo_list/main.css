@@ -170,7 +170,7 @@ body {
                                     }
 
                                     .smallimagepadding{
-                                        padding-bottom: 30px;
+                                        padding-bottom: 10px;
                                     }
 
                                     /* Home Profile pic above post */
@@ -1102,4 +1102,8 @@ body {
       color: #8e03fa;
       flex: 1;
       text-decoration: none;
+    }
+
+    .center{
+        text-align: center;
     }
