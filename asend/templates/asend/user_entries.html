@@ -4,13 +4,13 @@
 {% block content %} 
 {{block.super}}
 
-<title>Tasks for {{user.first_name}} {{user.last_name}}</title>
+<title>Entries for {{user0.first_name}} {{user0.last_name}}</title>
 <div class="media">
    
       <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
       <div>
-        <h1>Tasks for {{user.first_name}} {{user.last_name}}</h1>
-        <div class="article-metadata"> Email: {{user.email}}</div>
+        <h1>Tasks for {{user0.first_name}} {{user0.last_name}}</h1>
+        <div class="article-metadata"> Email: {{user0.email}}</div>
       
     </div>
   </div>
