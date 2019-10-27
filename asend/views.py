@@ -37,13 +37,14 @@ class EntryListView(ListView):
 	context_object_name = 'entries'
 	ordering = ['value']
 	def get_context_data(self, **kwargs):
-		c = Category.objects.all()[:1].get()
-		d = Category.objects.all()[1:2].get()
-		e = Category.objects.all()[2:3].get()
+		c = Category.objects.all().filter(name = "Juggling").first()
+		d = Category.objects.all().filter(name = "Free Throws in a Row").first()
+		e = Category.objects.all().filter(name = "Mario Bros Speedrun").first()
 		context = super(EntryListView, self).get_context_data(**kwargs)
-		context['first'] = Entry.objects.all().filter(category=c).order_by('-value').first()
-		context['second'] = Entry.objects.all().filter(category=d).order_by('-value').first()
-		context['third'] = Entry.objects.all().filter(category=e).order_by('-value').first()
+		entrylist = [Entry.objects.all().filter(category=c).order_by('-value').first()]
+		entrylist = entrylist + [Entry.objects.all().filter(category=d).order_by('-value').first()]
+		entrylist = entrylist + [Entry.objects.all().filter(category=e).order_by('-value').first()]
+		context['entrylist'] = entrylist
 		return context
 
 class CategoryDetailView(LoginRequiredMixin, DetailView):
