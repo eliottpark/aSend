@@ -33,17 +33,25 @@
                         <!-- BootStrap Class For adding Border arround picture -->
                         <div class="panel panel-primary column-container">
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
+                             
                             <div class="section1">
+                                <a href = "{% url 'category-detail' entrylist0.category.id %}" class = "article-title">
                               <div class = "article-title">
                                 <strong href = "{% url 'category-detail' entrylist0.category.id %}"># {{entrylist0.rank}} in {{entrylist0.category}}</strong>
                               </div>
+                          </a>
+
 
                               <!-- Profile Picture and User name for account -->
                               <div class="usernameandpic">
-                                <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
-                                <div class="article-user">
-                                  <strong href="{% url 'user-page' entrylist0.creator.username %}">{{entrylist0.creator.username}}</strong>
+
+
+                                <a href="{% url 'user-page' entrylist0.creator.username %}" class="article-user">
+                                    <div> <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo "> 
+                                    <strong>{{entrylist0.creator.username}}</strong>
                                 </div>
+                            </a>
+
                               </div>
                             </div>
                            
@@ -77,87 +85,6 @@
                             <!-- Caption Section -->
                             <div class="video-description-default">
                               <div class="container-fluid p-2"><strong>{{entrylist0.creator.username}}</strong> {{entrylist0.description}}
-                              </div>
-                            </div>
-
-                            <!--Comment Section 
-                            {% if task.team %} {% for member in task.team %}
-                            <strong> "{{member.username}}" </strong>
-                            {% endfor %}{% else %}
-
-                            <div class='commentsection'>
-                                    <input type='text' id='cmnt' placeholder='Add a comment...'>
-                                    <span class='dot02'></span>
-                                </div>
-                            {% endif %} 
-
-                                </div> End like & comment section-->
-
-                                
-                          </div> <!--End panel primary-->
-    
-    
-                      </div> <!--End image padding-->
-    
-                  </div> <!--End container-->
-    
-    
-              </div> <!--End w3 card-->
-
-              <div class="w3-card-6" style="width:56%">
-    
-                <div class="container">
-
-    
-                    <div class="imagepadding">
-    
-                        <!-- BootStrap Class For adding Border arround picture -->
-                        <div class="panel panel-primary column-container">
-                            <!-- SECTION 1 Ranking category PROFILE & user name -->
-                            <div class="section1">
-                              <div class = "article-title">
-                                <strong href = "{% url 'category-detail' entrylist1.category.id %}" ># {{entrylist1.rank}} in {{entrylist1.category}}</strong>
-                              </div>
-
-                              <!-- Profile Picture and User name for account -->
-                              <div class="usernameandpic">
-                                <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
-                                <div class="article-user">
-                                  <strong href="{% url 'user-page' entrylist1.creator.username %}">{{entrylist1.creator.username}}</strong>
-                                </div>
-                              </div>
-                            </div>
-                           
-                            <!-- SECTION 2 (VIDEO) -->
-                            <!-- Posted video -->
-                            <div class="video-default">
-                              <video id='video1' style="width:100%;margin-left: 0%;margin-top:15px;" controls autoplay loop>
-                                <!--
-                                <source src="{% static 'dunk.mp4' %}" type=video/mp4 >
-                                -->
-                              </video>
-                            </div>
-    
-                            <!--Like & comment Section 
-                            <div class="container">
-                                <div class='likesect'>
-    
-                                    <span class="like-row">
-                                        {% if true %}
-                                        <img class="likedhrt" src="{% static 'liked.png' %}" alt="liked picture"> 
-                                        {% else %}
-                                        <img class="unlikehrt" src="{% static 'like.png' %}" alt="not liked picture" class="img-responsive"> 
-                                        {% endif %}
-                                        <img class="commenthrt" id='comment-icon' src="{% static 'comment.png' %}"class="img-responsive" alt=" commentImage">
-                                        <img class="savehrt" src="{% static 'unsaved.png' %}" alt="save picture">
-                                            
-                                        </p>
-                                    </span>
-                                    </div>
-                                    -->
-                            <!-- Caption Section -->
-                            <div class="video-description-default">
-                              <div class="container-fluid p-2"><strong>{{entrylist1.creator.username}}</strong> {{entrylist1.description}}
                               </div>
                             </div>
 

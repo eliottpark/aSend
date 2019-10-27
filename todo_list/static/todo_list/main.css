@@ -143,6 +143,13 @@ body {
                                       margin-right: 25%;
                                     }
 
+                                    .fullscreen{
+                                      margin-top: 13%;
+                                      margin-left: 5%;
+                                      margin-right: 5%;
+                                    }
+
+
                                     .navbar-fixed-bottom{
                                         display: none;
                                     }
