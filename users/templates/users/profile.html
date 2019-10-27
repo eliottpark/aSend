@@ -3,12 +3,12 @@
 {% block content %}
 <title>Profile</title>
   <div class="contentbody">
-  <div class="media">
-    <article class="media contentbody">
-      <img class="circleprofile-dp" src="{{user.profile.image.url}}">
-      <h1>{{user.first_name}} {{user.last_name}}</h1>
-  </article>
-</div>
+  	<div>
+		<article class="media contentbody">
+			<img class="circleprofile-dp" src="{{user.profile.image.url}}">
+			<h1>{{user.first_name}} {{user.last_name}}</h1>
+		</article>
+	</div>
   <form method="POST" enctype="multipart/form-data">
  		{% csrf_token %}
  		<fieldset class = "form-group">

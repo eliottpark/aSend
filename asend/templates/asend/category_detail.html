@@ -24,12 +24,12 @@
           <div class="panel panel-primary">
             <div class="row-container">
                   <div class="container" left-margin="15px">
-                        <a class="article-title" href="{% url 'user-page' entry.creator.username %}">
+                        <a class="article-title" href="{% url 'entry-detail' entry.id %}">
                           <div>
-                              # {{entry.rank}}: {{entry.creator}}
+                              <h1># {{entry.rank}}: {{entry.creator}}</h1>
                           </div>
                         </a> 
-                      <h4>{{entry.value}} {{entry.metric}}</h4>
+                      <div class="entry-subtitiles">{{entry.value}} {{entry.metric}}</div>
                     </div>
                   <div right-margin="15px">
                     <img src="{% static 'screenshots/asend.png' %}" style="height: 100px" alt="screenshot">

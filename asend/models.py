@@ -6,8 +6,6 @@ import datetime
 import calendar
 
 
-
-
 # Create your models here.
 class Entry(models.Model):
 	value = models.IntegerField()
