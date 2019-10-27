@@ -24,7 +24,7 @@
 <article class="media contentbody">
   <div class="media-body">
     <div class="article-metadata">
-      <a class="mr-2" href="{% url 'home' %}">{{entry.creator.username}}</a>
+      <a class="mr-2" href="{% url 'user-page' entry.creator.username %}">{{entry.creator.username}}</a>
       <small class="text-muted"><font color="red">{{entry.value}} {{entry.metric}}</font></small>
       
     <a class="btn btn-outline-secondary btn-sm mt-0 mb-1" href ="{%url 'entry-detail' entry.id%}">Fullscreen</a>

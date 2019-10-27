@@ -15,13 +15,16 @@
             <!-- USED TO STYLE PICTURE-BODYSIZE IN HOME-PAGE  -->
             <div class="w3-card-6" style="width:56%">
     
-                <div class="flex-container">
+                <div class="container">
 
     
                     <div class="imagepadding">
     
                         <!-- BootStrap Class For adding Border arround picture -->
                         <div class="panel panel-primary">
+                            <div float="left">
+                              centered
+                            </div>
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
                             <div class="container section1">
                               <div class = "rankinghome-dp">
@@ -31,17 +34,15 @@
                               <!-- Profile Picture and User name for account -->
                               <div class="usernamehome-dp">
                                   <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
-                                  <strong>{{first.creator.username}}</strong>
-                              </div>
+                              <strong href="{% url 'user-page' first.creator.username %}">{{first.creator.username}}</strong>
+                              </p>
                             </div>
                            
-                            <!-- SECTION 2 (VIDEO) -->
+                            <!-- SECTION 2 (IMAGE) -->
                             <!-- Posted video -->
-                            <div class="container video-default">
-                              <video style="width:100%;margin-left: 0%;margin-top:15px;" controls autoplay loop>
-                                <source src="{% static 'dunk.mp4' %}" type=video/mp4 >
-                              </video>
-                            </div>
+                            <video style="width:100%;margin-left: 0%;margin-top:15px;" controls autoplay loop>
+                              <source src="{% static 'dunk.mp4' %}" type=video/mp4 >
+                            </video>
     
                             <!--Like & comment Section 
                             <div class="container">
@@ -61,10 +62,8 @@
                                     </div>
                                     -->
                             <!-- Caption Section -->
-                            <div class="container video-description-default">
-                              <div class="container-fluid p-2" margin-left="0%">
-                                <strong>{{first.creator.username}}</strong> {{first.description}}
-                              </div>
+                            
+                            <div class="container-fluid p-2"><strong>{{first.creator.username}}</strong> {{first.description}}
                             </div>
 
                             <!--Comment Section 
