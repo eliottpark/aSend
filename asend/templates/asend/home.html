@@ -37,11 +37,13 @@
                            
                             <!-- SECTION 2 (IMAGE) -->
                             <!-- Posted video -->
-                            <video id='video' style="width:100%;margin-left: 0%;margin-top:15px;" controls autoplay loop>
-                              <!--
-                              <source src="{% static 'dunk.mp4' %}" type=video/mp4 >
-                              -->
-                            </video>
+                            <div class="video-default">
+                              <video id='video' style="width:100%;margin-left: 0%;margin-top:15px;" controls autoplay loop>
+                                <!--
+                                <source src="{% static 'dunk.mp4' %}" type=video/mp4 >
+                                -->
+                              </video>
+                            </div>
     
                             <!--Like & comment Section 
                             <div class="container">
@@ -61,8 +63,9 @@
                                     </div>
                                     -->
                             <!-- Caption Section -->
-                            
-                            <div class="container-fluid p-2"><strong>{{first.creator.username}}</strong> {{first.description}}
+                            <div class="video-description-default">
+                              <div class="container-fluid p-2"><strong>{{first.creator.username}}</strong> {{first.description}}
+                              </div>
                             </div>
 
                             <!--Comment Section 
