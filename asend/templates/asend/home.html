@@ -4,11 +4,8 @@
 {% block content %} 
 
 <div class="homebody">
-        <div class="container">
-    
-    
-    
-    
+        <div class="column-container">
+          
             <!-- SECTION 1 -->
     
             <!-- USED TO STYLE PICTURE-BODYSIZE IN HOME-PAGE  -->
@@ -20,18 +17,18 @@
                     <div class="imagepadding">
     
                         <!-- BootStrap Class For adding Border arround picture -->
-                        <div class="panel panel-primary flex-container">
+                        <div class="panel panel-primary column-container">
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
                             <div class="section1">
                               <div class = "rankinghome-dp">
-                                <strong># {{first.creator.rank}} in {{first.creator.category}}</strong>
+                                <strong># {{entry.creator.rank}} in {{entry.creator.category}}</strong>
                               </div>
 
                               <!-- Profile Picture and User name for account -->
                               <div class="usernameandpic">
                                 <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
                                 <div class="usernamehome-dp">
-                                  <strong href="{% url 'user-page' first.creator.username %}">{{first.creator.username}}</strong>
+                                  <strong href="{% url 'user-page' first.creator.username %}">{{entry.creator.username}}</strong>
                                 </div>
                               </div>
                             </div>
@@ -65,7 +62,7 @@
                                     -->
                             <!-- Caption Section -->
                             <div class="video-description-default">
-                              <div class="container-fluid p-2"><strong>{{first.creator.username}}</strong> {{first.description}}
+                              <div class="container-fluid p-2"><strong>{{entry.creator.username}}</strong> {{entry.description}}
                               </div>
                             </div>
 
@@ -92,7 +89,8 @@
     
     
               </div> <!--End w3 card-->
-          </div> <!--End container-->
+          {% endfor %}
+          </div> <!--End column-container-->
   </div> <!--End homebody-->
 
 <!-- firt = Entry
