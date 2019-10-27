@@ -1,4 +1,5 @@
 {% extends "asend/base.html" %}
+{% load static %}
 {% block content %}
 <!-- object = Category
 -->
@@ -31,7 +32,7 @@
                       <h4>{{entry.value}} {{entry.metric}}</h4>
                     </div>
                   <div right-margin="15px">
-                    <img src="../../../todo_list/static/screenshots/asend.png" alt="screenshot">
+                    <img src="{% static 'screenshots/asend.png' %}" style="height: 100px" alt="screenshot">
                   </div>
                </div>
             </div>
