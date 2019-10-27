@@ -72,23 +72,22 @@ body {
                                     }
                                     .section1{
                                         width: 100%;
-                                        display:flex;
+                                        display: flex;
+                                        flex-direction: row;
                                         justify-content: space-between;
-                                        align-items: flex-start;
+                                        margin-left:15px;
+                                        margin-right:15px;
+                                        margin-top:15px;
+                                        margin-bottom:15px;
                                     }
 
                                     .video-default {
                                       width: 100%;
-                                      display:flex;
-                                      justify-content: flex-start;
-                                      align-items: center;
-                                      margin-top:15px;
                                     }
 
                                     .video-description-default{
                                         width: 100%;
-                                        display:flex;
-                                        align-items: flex-end;
+                                        margin-left: auto;
                                         margin-top:15px;
                                         margin-bottom:15px;
                                     }
@@ -155,7 +154,7 @@ body {
 
 
                                     .panel-primary{
-                                      width: 100%;
+                                      width: 56%;
                                       border-color: rgb(216, 209, 209)!important;
                                     }
 
@@ -167,23 +166,29 @@ body {
 
                                     /* Home Profile pic above post */
 
+                                    .usernameandpic{
+                                        flex: 1;
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                    }
+
+
                                     .usernamehome-dp{
                                         font-size: 15px;
-                                        margin-top: 15px;
+                                        display: inline-block;
+                                        vertical-align: middle;
                                     }
 
                                     .rankinghome-dp{
-                                        font-size: 15px;
-                                        margin-top: 15px;
-                                        margin-bottom: -1%;
+                                        font-size: 20px;
                                         color: #5335e8;
+                                        flex: 1;
                                     }
                                 
                                     .rankinghome-dp:hover{
-                                        font-size: 15px;
-                                        margin-top: 15px;
-                                        margin-bottom: -1%;
+                                        font-size: 20px;
                                         color: #8e03fa;
+                                        flex: 1;
                                     }
                                     
                                     .circlehome-dp{
@@ -195,13 +200,6 @@ body {
 
 /* ######################################################################################### */
 
-                                    .usernameright{
-                                        display: inline-block;
-                                    }
-
-                                    .rankingleft{
-                                        display: inline-block;
-                                    }
 
                                     /* EXPLORE PAGE */
 
@@ -640,24 +638,6 @@ body {
         width: 30px;
         border-color: 100%;
     }
-    .usernamehome-dp{
-        font-size: 15px;
-        margin-top: 15px;
-        margin-bottom: -1%;
-    }
-    .rankinghome-dp{
-        font-size: 15px;
-        margin-top: 15px;
-        margin-bottom: -1%;
-        color: #5335e8;
-    }
-
-    .rankinghome-dp:hover{
-        font-size: 15px;
-        margin-top: 15px;
-        margin-bottom: -1%;
-        color: #8e03fa;
-    }
 
     /* Comment section */
     .commentsection{
@@ -784,24 +764,7 @@ body {
         width: 30px;
         border-color: 100%;
     }
-    .usernamehome-dp{
-        font-size: 15px;
-        margin-top: 15px;
-        margin-bottom: -1%;
-    }
-    .rankinghome-dp{
-        font-size: 15px;
-        margin-top: 15px;
-        margin-bottom: -1%;
-        color: #5335e8;
-    }
 
-    .rankinghome-dp:hover{
-        font-size: 15px;
-        margin-top: 15px;
-        margin-bottom: -1%;
-        color: #8e03fa;
-    }
 
     /* Comment section */
 
