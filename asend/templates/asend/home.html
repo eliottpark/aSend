@@ -445,9 +445,13 @@
 
         funcStartTag("Starting Loop");
 
+<<<<<<< HEAD
         let list = ['{{entrylist[0].video}}', '{{entrylist[1].video}}', '{{entrylist[2].video}}']
+=======
+        let list = ['{{entrylist[0].video}}', '{{entrylist[1].video}}', '{{entrylist[1].video}}']
+>>>>>>> 8cffec2f9e61481af28d5afdddf80c7c19f3e84c
         for (let i = 0; i < 3; i++) {
-          video = document.getElementById('video'); 
+          video = document.getElementById(videoIdList[i]); 
           console.log('video: ' + video);
           content = list[i]
           console.log("id: " + content);
