@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from django.utils import timezone
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 USE_TZ = True
-TIME_ZONE = 'India/Madurai'
+TIME_ZONE = timezone.now()
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,8 +47,6 @@ INSTALLED_APPS = [
     'bootstrap3'
 
 ]
-
-SCHEDULER_AUTOSTART = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
