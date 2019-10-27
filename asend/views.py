@@ -103,10 +103,13 @@ class UserEntries(LoginRequiredMixin, ListView):
 	
 	def get_queryset(self):
 		user = get_object_or_404(User, username=self.kwargs.get('username'))
-		return Entry.objects.filter(creator=user).order_by('rank')
+		return Entry.objects.filter(creator=user).order_by('rank')[:2]
 
 	def get_context_data(self, **kwargs):
 		user = get_object_or_404(User, username=self.kwargs.get('username'))
 		context = super(UserEntries, self).get_context_data(**kwargs)
+		e = Entry.objects.filter(creator=user).order_by('rank')[:2]
+		context['entrylist0'] = e[0]
+		context['entrylist1'] = e[1]
 		return context
 	
