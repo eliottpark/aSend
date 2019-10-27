@@ -41,10 +41,9 @@ class EntryListView(ListView):
 		d = Category.objects.all().filter(name = "Free Throws in a Row").first()
 		e = Category.objects.all().filter(name = "Mario Bros Speedrun").first()
 		context = super(EntryListView, self).get_context_data(**kwargs)
-		entrylist = [Entry.objects.all().filter(category=c).order_by('-value').first()]
-		entrylist = entrylist + [Entry.objects.all().filter(category=d).order_by('-value').first()]
-		entrylist = entrylist + [Entry.objects.all().filter(category=e).order_by('-value').first()]
-		context['entrylist'] = entrylist
+		context['entrylist0'] = Entry.objects.all().filter(category=c).order_by('-value').first()
+		context['entrylist1'] = Entry.objects.all().filter(category=d).order_by('-value').first()
+		context['entrylist2'] = Entry.objects.all().filter(category=e).order_by('-value').first()
 		return context
 
 class CategoryDetailView(LoginRequiredMixin, DetailView):

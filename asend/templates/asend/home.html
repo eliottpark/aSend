@@ -24,14 +24,14 @@
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
                             <div class="section1">
                               <div class = "rankinghome-dp">
-                                <strong># {{first.creator.rank}} in {{first.creator.category}}</strong>
+                                <strong># {{entrylist[0].creator.rank}} in {{entrylist[0].creator.category}}</strong>
                               </div>
 
                               <!-- Profile Picture and User name for account -->
                               <div class="usernameandpic">
                                 <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
                                 <div class="usernamehome-dp">
-                                  <strong href="{% url 'user-page' first.creator.username %}">{{first.creator.username}}</strong>
+                                  <strong href="{% url 'user-page' entrylist[0].creator.username %}">{{entrylist[0].creator.username}}</strong>
                                 </div>
                               </div>
                             </div>
@@ -39,7 +39,7 @@
                             <!-- SECTION 2 (IMAGE) -->
                             <!-- Posted video -->
                             <div class="video-default">
-                              <video id='video' style="width:100%;margin-left: 0%;margin-top:15px;" controls autoplay loop>
+                              <video id='video0' style="width:100%;margin-left: 0%;margin-top:15px;" controls autoplay loop>
                                 <!--
                                 <source src="{% static 'dunk.mp4' %}" type=video/mp4 >
                                 -->
@@ -65,7 +65,7 @@
                                     -->
                             <!-- Caption Section -->
                             <div class="video-description-default">
-                              <div class="container-fluid p-2"><strong>{{first.creator.username}}</strong> {{first.description}}
+                              <div class="container-fluid p-2"><strong>{{entrylist[0].creator.username}}</strong> {{entrylist[0].description}}
                               </div>
                             </div>
 
@@ -278,9 +278,9 @@
 
         funcStartTag("Starting Loop");
 
-        let list = ['{{first.video}}', '{{second.video}}', '{{first.video}}']
+        let list = ['{{entrylist[0].video}}', '{{entrylist[1].video}}', '{{entrylist[1].video}}']
         for (let i = 0; i < 3; i++) {
-          video = document.getElementById('video'); 
+          video = document.getElementById(videoIdList[i]); 
           console.log('video: ' + video);
           content = list[i]
           console.log("id: " + content);
