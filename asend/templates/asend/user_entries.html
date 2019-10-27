@@ -3,20 +3,19 @@
 {% load bootstrap3 %} 
 {% block content %} 
 {{block.super}}
-
-<title>Entries for {{user0.first_name}} {{user0.last_name}}</title>
-<div class="media">
-   
-      <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
-      <div>
-        <h1>Tasks for {{user0.first_name}} {{user0.last_name}}</h1>
-        <div class="article-metadata"> Email: {{user0.email}}</div>
-      
-    </div>
-  </div>
        
  <div class="homebody">
-        <div class="container">
+      <div class="container">
+
+      <title>{{user0.first_name}} {{user0.last_name}}</title>
+      <div class="profile-containter">
+            <div>
+              <img class="circleprofile-dp" src="{{user0.profile.image.url}}">
+            </div>
+            <div>
+              <h1> {{user0.first_name}} {{user0.last_name}}</h1>
+            </div>
+        </div>
 
  {% for entrylist0 in entries %}
 

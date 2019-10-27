@@ -111,6 +111,6 @@ class UserEntries(LoginRequiredMixin, ListView):
 		e = Entry.objects.filter(creator=user).order_by('rank')[:2]
 		context['entrylist0'] = e[0]
 		context['entrylist1'] = e[1]
-		context['user0'] = e[0].creator
+		context['user0'] = user
 		return context
 	

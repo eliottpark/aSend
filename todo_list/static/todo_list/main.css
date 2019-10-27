@@ -71,6 +71,16 @@ body {
                                         flex-direction: row;
                                     }
 
+                                    .profile-container{
+                                        display: flex;
+                                        flex-direction: row;
+                                        justify-content: space-between;
+                                        margin-left:15px;
+                                        margin-right:15px;
+                                        margin-top:15px;
+                                        margin-bottom:15px;
+                                    }
+
                                     .column-container{
                                         display:flex;
                                         flex-direction: column;
@@ -211,6 +221,12 @@ body {
                                     .circlehome-dp{
                                         height: 32px;
                                         width: 32px;
+                                        border-radius: 100%;
+                                    }
+
+                                    .circleprofile-dp{
+                                        height: 170px;
+                                        width: 170px;
                                         border-radius: 100%;
                                     }
 
@@ -1109,6 +1125,13 @@ body {
       color: #8e03fa;
       flex: 1;
       text-decoration: none;
+    }
+
+    .article-subtitles{
+        font-size: 15px;
+      color: #7D7D7D;
+      text-decoration: none;
+      margin-bottom: 15px;
     }
 
     .center{
