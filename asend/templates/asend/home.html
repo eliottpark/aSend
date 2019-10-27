@@ -29,7 +29,7 @@
                             <div class="container" float="right">
                               <p class="usernamehome-dp">
                                   <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
-                              <strong>{{first.creator.username}}</strong>
+                              <strong href="{% url 'user-page' first.creator.username %}">{{first.creator.username}}</strong>
                               </p>
                             </div>
                            
