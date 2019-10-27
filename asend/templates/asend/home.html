@@ -21,10 +21,7 @@
                     <div class="imagepadding">
     
                         <!-- BootStrap Class For adding Border arround picture -->
-                        <div class="panel panel-primary">
-                            <div float="left">
-                              centered
-                            </div>
+                        <div class="panel panel-primary flex-container">
                             <!-- SECTION 1 Ranking category PROFILE & user name -->
                             <div class="container section1">
                               <div class = "rankinghome-dp">
@@ -35,7 +32,7 @@
                               <div class="usernamehome-dp">
                                   <img src="{% static 'profile_pics/eprofpic.jpg' %}" class="circlehome-dp" alt="signuplogo ">
                               <strong href="{% url 'user-page' first.creator.username %}">{{first.creator.username}}</strong>
-                              </p>
+                              </div>
                             </div>
                            
                             <!-- SECTION 2 (IMAGE) -->
