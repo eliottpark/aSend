@@ -1,4 +1,4 @@
-# aSend (Cal Hacks 2019)
+# aSend (Cal Hacks 2019 Winner)
 
 https://devpost.com/software/calhacks2019
 
